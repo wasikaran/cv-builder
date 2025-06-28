@@ -1,0 +1,246 @@
+.cv-container {
+  font-family: 'Arial', sans-serif;
+  max-width: 1200px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.left-column {
+  background-color: #135a9c;
+  padding: 30px;
+  width: 400px;
+  color: white;
+}
+.line{
+  height: 7px;
+  width: 130px;
+  border-radius: 50px;
+  background-color: black;
+}
+.contact{
+  margin-top: 90px;
+  color: white;
+
+}
+
+.contact p {
+  color: white;
+
+}
+.name {
+  font-size: 70px;
+  
+}
+.job{
+  margin-top: 50px;
+  font-size: 40px;
+}
+.my-img
+{
+  border-radius: 50%;
+  height: 220px;
+  margin-top: 10px;
+  width:220px;
+  background-color: black;
+  border: 10px solid white;
+}
+
+.right-column {
+  padding: 30px;
+  width: 600px;
+}
+
+.header-section {
+  margin-bottom: 30px;
+}
+
+
+
+.title {
+  font-size: 18px;
+  color: #6c757d;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+.header-name {
+  height: 260px;
+  padding-left: 40px;
+}
+
+.section {
+  margin-bottom: 30px;
+  
+}
+.icon {
+  color: white;
+
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-bottom: 2px solid #dee2e6;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+}
+
+.education-item {
+  margin-bottom: 15px;
+  color: white;
+
+}
+
+.years {
+  font-weight: bold;
+  margin-bottom: 0;
+
+  color: white;
+
+}
+
+.institution {
+  font-weight: bold;
+  margin-bottom: 0;
+  color: white;
+
+}
+
+.degree {
+  margin-bottom: 0;
+  color: white;
+
+}
+
+.gpa {
+  font-style: italic;
+  margin-bottom: 0;
+  color: white;
+
+}
+
+.skills-list, .languages-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.skills-list li, .languages-list li {
+  margin-bottom: 5px;
+}
+
+.profile-text {
+  text-align: justify;
+}
+
+.work-experience {
+  margin-bottom: 20px;
+}
+
+.company {
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.position {
+  font-style: italic;
+  color: #6c757d;
+  margin-bottom: 10px;
+}
+
+.responsibilities {
+  padding-left: 20px;
+}
+
+.responsibilities li {
+  margin-bottom: 5px;
+}
+
+.reference {
+  margin-bottom: 15px;
+}
+
+.reference-name {
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.reference-position {
+  color: #6c757d;
+  margin-bottom: 5px;
+}
+
+.reference-contact {
+  margin-bottom: 0;
+}
+
+
+
+/* side navbar */
+
+   .sidenav1 {
+  height: 80%;
+  width: 115px;
+  position: fixed;
+  z-index: 1;
+  top: 20%;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav1 a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 16px;
+  color: #818181;
+  flex-direction: row;
+  display: block;
+  margin-left: 1px;
+}
+
+.sidenav1 a:hover {
+  color: #f1f1f1;
+}
+.sidenav2 {
+  height: 80%;
+  width: 150px;
+  position: fixed;
+  z-index: 1;
+  top: 20%;
+  left: 91%;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav2 a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav2 a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.dropdown-menu button {
+ width: 100px;
+}
+
+

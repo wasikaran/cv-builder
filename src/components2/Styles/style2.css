@@ -1,0 +1,160 @@
+/* CVStyle1.css */
+.cv-style1 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  max-width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto;
+  background: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  color: #333;
+}
+
+.cv-header {
+  background: #2c3e50;
+  color: white;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.profile-image-container {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid white;
+  margin-right: 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.header-text h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.header-text h2 {
+  margin: 0.5rem 0 0;
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: #ecf0f1;
+}
+
+.cv-columns {
+  display: flex;
+  flex: 1;
+}
+
+.left-column {
+  flex: 1;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-right: 1px solid #eaeaea;
+}
+
+.right-column {
+  flex: 2;
+  padding: 2rem;
+}
+
+section {
+  margin-bottom: 2rem;
+}
+
+h3 {
+  color: #2c3e50;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 0.5rem;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.skills-list {
+  list-style: none;
+  padding: 0;
+}
+
+.skills-list li {
+  margin-bottom: 1rem;
+}
+
+.skill-bar {
+  height: 8px;
+  background: #ecf0f1;
+  border-radius: 4px;
+  margin-bottom: 0.3rem;
+}
+
+.skill-progress {
+  height: 100%;
+  background: #3498db;
+  border-radius: 4px;
+}
+
+.experience-item, .education-item {
+  margin-bottom: 1.5rem;
+}
+
+.experience-header, .education-item h4 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.experience-period {
+  color: #7f8c8d;
+  font-size: 0.9rem;
+}
+
+.company-name {
+  color: #3498db;
+  font-style: italic;
+  margin: 0.3rem 0;
+}
+
+.responsibilities {
+  padding-left: 1.2rem;
+}
+
+.responsibilities li {
+  margin-bottom: 0.5rem;
+}
+
+.institution {
+  font-weight: 500;
+  margin: 0.2rem 0;
+}
+
+.education-period {
+  color: #7f8c8d;
+  font-size: 0.9rem;
+}
+
+.contact-section p {
+  margin: 0.5rem 0;
+  display: flex;
+  align-items: center;
+}
+
+.contact-section i {
+  margin-right: 0.5rem;
+  color: #3498db;
+  width: 20px;
+  text-align: center;
+}
+
+@media print {
+  .cv-style1 {
+    box-shadow: none;
+  }
+}

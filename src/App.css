@@ -1,0 +1,171 @@
+.portfolio-container {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px;
+  color: #333;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.header h1 {
+  font-size: 36px;
+  font-weight: 700;/* JavieraCV.css */
+.javiera-cv {
+  font-family: 'Arial', sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  color: #333;
+  padding: 20px;
+}
+
+.javiera-header {
+  margin-bottom: 30px;
+}
+
+.javiera-header h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.javiera-header h2 {
+  font-size: 18px;
+  font-weight: 400;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.javiera-contact p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.javiera-content {
+  display: flex;
+}
+
+.javiera-left {
+  width: 30%;
+  padding-right: 20px;
+}
+
+.javiera-right {
+  width: 70%;
+  padding-left: 20px;
+}
+
+.javiera-section {
+  margin-bottom: 30px;
+}
+
+.javiera-section h3 {
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #2c3e50;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+}
+
+.javiera-skills {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.javiera-skills li {
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.javiera-education-item {
+  margin-bottom: 20px;
+}
+
+.javiera-education-item h4 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.javiera-education-item p {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.javiera-experience-item {
+  margin-bottom: 25px;
+}
+
+.javiera-experience-item h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.javiera-experience-item h5 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.javiera-duration {
+  font-style: italic;
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+.javiera-experience-desc {
+  font-size: 14px;
+  line-height: 1.5;
+}
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.header h2 {
+  font-size: 18px;
+  font-weight: 300;
+  letter-spacing: 4px;
+  color: #777;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.left-column, .right-column {
+  width: 48%;
+}
+
+h3 {
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #eee;
+}
+
+p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  color: #555;
+}
+
+.skill h4 {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 10px 0 5px 0;
+  color: #444;
+}

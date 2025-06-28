@@ -1,0 +1,61 @@
+.cv-form-container {
+  max-width: 900px;
+  margin: auto;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.cv-form-container h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.cv-form h3 {
+  margin-top: 2rem;
+  color: #34495e;
+}
+
+.cv-form input,
+.cv-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 6px 0 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+.cv-form textarea {
+  resize: vertical;
+}
+
+.cv-card {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.preview-btn,
+.submit-btn,
+button[type="button"] {
+  background-color: #2c3e50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 10px;
+  font-size: 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.preview-btn:hover,
+.submit-btn:hover,
+button[type="button"]:hover {
+  background-color: #1a242f;
+}
