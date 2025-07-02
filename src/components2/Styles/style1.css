@@ -50,10 +50,14 @@
 .right-column {
   padding: 30px;
   width: 600px;
+  color: black;
+  background-color: #7c93fa;
 }
 
 .header-section {
   margin-bottom: 30px;
+  color: black;
+  
 }
 
 
@@ -63,6 +67,7 @@
   color: #6c757d;
   margin-bottom: 20px;
   text-transform: uppercase;
+  
 }
 .header-name {
   height: 260px;

@@ -1,10 +1,17 @@
 import React from 'react';
 import './style1.css';
-import { useState } from 'react';
-
+import { useState, useRef } from 'react';
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPhone, faEnvelope, faLocationDot, faGlobe, faCircle } from '@fortawesome/free-solid-svg-icons';
-
+import { 
+  faPhone, 
+  faEnvelope, 
+  faLocationDot, 
+  faGlobe, 
+  faCircle, 
+  faDownload 
+} from '@fortawesome/free-solid-svg-icons';
 
 const RichardCV = ({ data, profileImage, setProfileImage }) => {
   const { 
@@ -22,87 +29,183 @@ const RichardCV = ({ data, profileImage, setProfileImage }) => {
     jobTitle
   } = data;
 
-  const [show, setShow] = useState()
-  const [btnshow, setbtnShow] = useState()
-  const [textColor, setTextColor] = useState()
-  const [Leftcolor, setLeftColor] = useState()
-  const [Rightcolor, setRightColor] = useState()
-  const [FontSizepara, setFontSizepara] = useState()
+  const [show, setShow] = useState(false);
+  const [btnshow, setbtnShow] = useState(false);
+  const [textColor, setTextColor] = useState();
+  const [Leftcolor, setLeftColor] = useState();
+  const [Rightcolor, setRightColor] = useState();
+  const [FontSizepara, setFontSizepara] = useState();
 
+  const cvRef = useRef();
 
-const fontParaSize = ["1", "2", "3", "4", "5", "6"];
-const colors = [
-  { name: "yellow", code: "warning" },
-  { name: "blue", code: "primary" },
-  { name: "red", code: "danger" },
-  { name: "light blue", code: "info" },
-  { name: "green", code: "success" },
-  { name: "white", code: "light" },
-  { name: "black", code: "dark" }
-];
+  const fontParaSize = ["1", "2", "3", "4", "5", "6"];
+  const colors = [
+    { name: "yellow", code: "warning" },
+    { name: "blue", code: "primary" },
+    { name: "red", code: "danger" },
+    { name: "light blue", code: "info" },
+    { name: "green", code: "success" },
+    { name: "white", code: "light" },
+    { name: "black", code: "dark" }
+  ];
 
+  const downloadCV = () => {
+    const input = cvRef.current;
+    
+    // Hide buttons before capturing
+    const buttons = input.querySelectorAll('button');
+    buttons.forEach(btn => btn.style.display = 'none');
+    
+    html2canvas(input, {
+      scale: 2,
+      logging: false,
+      useCORS: true,
+      allowTaint: true
+    }).then(canvas => {
+      const imgData = canvas.toDataURL('image/png');
+      const pdf = new jsPDF('p', 'mm', 'a4');
+      const imgWidth = 210;
+      const pageHeight = 295;
+      const imgHeight = canvas.height * imgWidth / canvas.width;
+      let heightLeft = imgHeight;
+      let position = 0;
 
-  
+      pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+      heightLeft -= pageHeight;
+
+      while (heightLeft >= 0) {
+        position = heightLeft - imgHeight;
+        pdf.addPage();
+        pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+        heightLeft -= pageHeight;
+      }
+
+      pdf.save(`${name || 'cv'}_resume.pdf`);
+      
+      // Show buttons again after capturing
+      buttons.forEach(btn => btn.style.display = '');
+    });
+  };
+
   return (
     <>
-<div className={`"cv-bigcontainer container text-${textColor? textColor: 'white'}"`}>
-    <button onClick={()=>setShow(!show)} className="btn btn-primary">Styling</button>
+      <div className={`cv-bigcontainer container text-${textColor || 'white'}`}>
+        <div className="d-flex justify-content-start gap-2 mb-2">
+          <button onClick={() => setShow(!show)} className="btn btn-primary">Styling</button>
+          <button onClick={downloadCV} className="btn btn-success">
+            <FontAwesomeIcon icon={faDownload} className="me-2" />
+            Download CV
+          </button>
+        </div>
 
-  <div id='cv-container ' className="cv-container container">
-  <div className="row">
-<div className={`sidenav1 d-${show? 'inline-block': 'none'}`}>
-  
-  <button onClick={()=>setbtnShow(!btnshow)} type="button" className="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-    Font Size
-  </button>
+        <div id='cv-container' className="cv-container container" ref={cvRef}>
+          <div className="row">
+            {/* Styling Sidebars */}
+            <div className={`sidenav1 d-${show ? 'inline-block' : 'none'}`}>
+              <button 
+                onClick={() => setbtnShow(!btnshow)} 
+                type="button" 
+                className="btn btn-danger dropdown-toggle" 
+                data-bs-toggle="dropdown" 
+                aria-expanded="false"
+              >
+                Font Size
+              </button>
 
-<div className={`btn-group d-${btnshow? 'inline-block': 'none'}`}>
+              <div className={`btn-group d-${btnshow ? 'inline-block' : 'none'}`}>
+                <button 
+                  type="button" 
+                  className="btn btn-danger dropdown-toggle" 
+                  data-bs-toggle="dropdown" 
+                  aria-expanded="false"
+                >
+                  paragraph
+                </button>
+                <ul className="dropdown-menu bg-black">
+                  {fontParaSize.map((size, i) => (
+                    <li key={i}>
+                      <button 
+                        onClick={() => {setFontSizepara(size)}} 
+                        className="btn btn-primary"
+                      >
+                        {size}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
 
-  <button type="button" className="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-    paragraph
-  </button>
-  <ul className="dropdown-menu  bg-black">
-    {fontParaSize.map((size, i)=>(
-      <li><button key={i} onClick={()=>{setFontSizepara(size)}} className="btn btn-primary">{size}</button></li>
-    ))}
+            <div className={`sidenav2 d-${show ? 'inline-block' : 'none'}`}>
+              <div className="btn-group">
+                <button 
+                  type="button" 
+                  className="btn btn-danger dropdown-toggle" 
+                  data-bs-toggle="dropdown" 
+                  aria-expanded="false"
+                >
+                  Left
+                </button>
+                <ul className="dropdown-menu bg-black">
+                  {colors.map((color, i) => (
+                    <li key={i}>
+                      <button 
+                        onClick={() => {setLeftColor(color.code)}}  
+                        className={`btn btn-${color.code}`}
+                      >
+                        {color.name}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-  </ul>
-</div>
-</div>
-<div className={`sidenav2 d-${show? 'inline-block': 'none'}`}>
-<div className="btn-group">
-  <button type="button" className="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-   Left
-  </button>
-  <ul className="dropdown-menu bg-black">
-    {colors.map((colors, i)=>(
-    <li><button key={i} onClick={()=>{setLeftColor(colors.code)}}  className={`btn btn-${colors.code}`}>{colors.name} </button></li>
-    ) )}
-  </ul>
-</div>
-<div className="btn-group">
-  <button type="button" className="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-    Right
-  </button>
-  <ul className="dropdown-menu bg-black">
-    {colors.map((colors, i)=>(
-    <li><button key={i} onClick={()=>{setRightColor(colors.code)}}  className={`btn btn-${colors.code}`}>{colors.name} </button></li>
-    ) )}
-  </ul>
-</div>
-<div className="btn-group">
-  <button type="button" className="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-    Right
-  </button>
-  <ul className="dropdown-menu bg-black">
-    {colors.map((colors, i)=>(
-    <li><button key={i} onClick={()=>{setTextColor(colors.code)}}  className={`btn btn-${colors.code}`}>{colors.name} </button></li>
-    ) )}
-  </ul>
-</div>
- 
+              <div className="btn-group">
+                <button 
+                  type="button" 
+                  className="btn btn-danger dropdown-toggle" 
+                  data-bs-toggle="dropdown" 
+                  aria-expanded="false"
+                >
+                  Right
+                </button>
+                <ul className="dropdown-menu bg-black">
+                  {colors.map((color, i) => (
+                    <li key={i}>
+                      <button 
+                        onClick={() => {setRightColor(color.code)}}  
+                        className={`btn btn-${color.code}`}
+                      >
+                        {color.name}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-</div>
+              <div className="btn-group">
+                <button 
+                  type="button" 
+                  className="btn btn-danger dropdown-toggle" 
+                  data-bs-toggle="dropdown" 
+                  aria-expanded="false"
+                >
+                  Text Color
+                </button>
+                <ul className="dropdown-menu bg-black">
+                  {colors.map((color, i) => (
+                    <li key={i}>
+                      <button 
+                        onClick={() => {setTextColor(color.code)}}  
+                        className={`btn btn-${color.code}`}
+                      >
+                        {color.name}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
     {/* Left Column */}
 
     <div className={`col-md-4 left-column bg-${Leftcolor} text-${textColor? textColor: 'white'}`}>

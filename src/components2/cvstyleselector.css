@@ -1,111 +1,19 @@
-/* CVStyleSelector.css */
-.style-selector-container {
-  margin-bottom: 2rem;
-}
-
-.selector-title {
-  display: flex;
+.parent {
+  height:auto;
+  width: auto;
+  margin: 50px;
+  padding: 30px;
+  justify-content: space-between;
   align-items: center;
-  gap: 0.8rem;
-  color: var(--dark-color);
-  margin-bottom: 1.5rem;
-  font-size: 1.3rem;
 }
 
-.selector-title i {
-  color: var(--accent-color);
+.child {
+  width: 400px;
+  height: 700px;
+  border-radius: 20px;
 }
+.child img {
+  width: 400px;
+    border-radius: 20px;
 
-.templates-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1rem;
-}
-
-.template-card {
-  border: 1px solid #e0e0e0;
-  border-radius: var(--border-radius);
-  overflow: hidden;
-  transition: var(--transition);
-  cursor: pointer;
-  background: white;
-}
-
-.template-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-}
-
-.template-card.active {
-  border: 2px solid var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
-}
-
-.template-thumbnail-container {
-  position: relative;
-  height: 180px;
-  overflow: hidden;
-}
-
-.template-thumbnail {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: var(--transition);
-}
-
-.template-card:hover .template-thumbnail {
-  transform: scale(1.05);
-}
-
-.selected-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(67, 97, 238, 0.7);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 2rem;
-}
-
-.template-info {
-  padding: 1.2rem;
-}
-
-.template-info h4 {
-  margin-bottom: 0.8rem;
-  color: var(--dark-color);
-}
-
-.preview-template-btn {
-  background: none;
-  border: none;
-  color: var(--accent-color);
-  font-weight: 500;
-  cursor: pointer;
-  padding: 0.3rem 0;
-  font-size: 0.9rem;
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
-}
-
-.preview-template-btn:hover {
-  text-decoration: underline;
-}
-
-/* Responsive */
-@media (max-width: 600px) {
-  .templates-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-  
-  .template-thumbnail-container {
-    height: 140px;
-  }
-}
+  height: 700px;}

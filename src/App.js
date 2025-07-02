@@ -1,5 +1,6 @@
 import React from 'react';
 import CVBuilder from './components2/CVBuilder';
+import Navbar from './components2/Navbar';
 function App() {
   return (
     // <Router>
@@ -16,6 +17,8 @@ function App() {
     // </Router>
   
     <div className="App">
+      <Navbar 
+      />
      <CVBuilder />
       {/* Other components go here */}
     </div>

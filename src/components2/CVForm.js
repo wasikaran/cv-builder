@@ -18,25 +18,27 @@ const LearnCV = ({ formData, setFormData, onPreview, profileImage, setProfileIma
     const updated = [...formData.experience];
     updated[index][e.target.name] = e.target.value;
     setFormData(prev => ({ ...prev, experience: updated }));
+    console.log("references are works! " + formData.experience)
   };
   const handleReferencesChange = (index, e) => {
     const updated = [...formData.references];
     updated[index][e.target.name] = e.target.value;
     setFormData(prev => ({ ...prev, references: updated }));
+    console.log("references are works! " + formData.references)
   };
 
   const handleSkillsChange = (e) => {
-    const skillArray = e.target.value.split(',').map(skill => skill.trim());
+    const skillArray = e.target.value.split(',').map(skill => skill);
     setFormData(prev => ({ ...prev, skills: skillArray }));
   };
 
   const handleInterestsChange = (e) => {
-    const interestArray = e.target.value.split(',').map(i => i.trim());
+    const interestArray = e.target.value.split(',').map(i => i);
     setFormData(prev => ({ ...prev, interests: interestArray }));
   };
 
   const handleLanguagesChange = (e) => {
-    const languageArray = e.target.value.split(',').map(l => l.trim());
+    const languageArray = e.target.value.split(',').map(l => l);
     setFormData(prev => ({ ...prev, languages: languageArray }));
   };
 
@@ -79,7 +81,8 @@ const LearnCV = ({ formData, setFormData, onPreview, profileImage, setProfileIma
       interests: [],
       languages: [],
       education: [{ degree: "", institution: "", year: "" }],
-      experience: [{ title: "", company: "", duration: "", responsibilities: "" }]
+      experience: [{ title: "", company: "", duration: "", responsibilities: "" }],
+      references: []
     });
   };
 
@@ -87,9 +90,8 @@ const LearnCV = ({ formData, setFormData, onPreview, profileImage, setProfileIma
     const { name, jobTitle, email, skills, education, experience } = formData;
 
     return (
-      name.trim() !== '' &&
-      email.trim() !== '' &&
-      jobTitle.trim() !== '' &&
+      email !== '' &&
+      jobTitle !== '' &&
       skills.length > 0 &&
       education.every(e => e.degree && e.institution && e.year) &&
       experience.every(e => e.title && e.company && e.duration)
@@ -173,7 +175,7 @@ const LearnCV = ({ formData, setFormData, onPreview, profileImage, setProfileIma
         </section>
         <section>
           <h3>References</h3>
-          {formData.references.map((ref, index) => (
+          {formData.references && formData.references.map((ref, index) => (
             <div key={index} className="cv-card">
               <input name="name" value={ref.name} onChange={(e) => handleReferencesChange(index, e)} placeholder="name" />
               <input name="position" value={ref.position} onChange={(e) => handleReferencesChange(index, e)} placeholder="position" />
@@ -220,6 +222,7 @@ const LearnCV = ({ formData, setFormData, onPreview, profileImage, setProfileIma
 
         <button type="submit" className="submit-btn">Build CV</button>
       </form>
+      
     </div>
   );
 };
